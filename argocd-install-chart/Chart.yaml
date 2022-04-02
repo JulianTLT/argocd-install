@@ -1,0 +1,8 @@
+apiVersion: v2
+name: argocd-install-chart
+description: A Helm chart for Kubernetes
+version: 0.1.0
+dependencies:
+  - name: argo-cd
+    version: 4.4.0
+    repository: https://argoproj.github.io/argo-helm
