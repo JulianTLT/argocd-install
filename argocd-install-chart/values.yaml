@@ -1,6 +1,15 @@
 argo-cd:
   dex:
     enabled: false
+  controller:
+    enableStatefulSet: true
+    args:
+      statusProcessors: 50
+      operationProcessors: 25
+    resources:
+      requests:
+        cpu: "8"
+        memory: "8Gi"
   server:
     extraArgs:
       - --insecure
