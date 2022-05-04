@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jsanchez-packtcluster-alb-controller
+  namespace: argocd
+  labels:
+    app.kubernetes.io/cluster: jsanchez-packtcluster
+spec:
+  project: argocd
+  source:
+    repoURL: 'https://aws.github.io/eks-charts'
+    chart: aws-load-balancer-controller
+    targetRevision: "1.4.1"
+    helm:
+      values: |
+        clusterName: jsanchez-packtcluster
+        region: us-east-1
+        vpcId: vpc-0960037abc8ae83cf
+        enableWaf: false
+        enableWafv2: false
+        enableBackendSecurityGroup: false
+        webhookBindPort: 4443
+        keepTLSSecret: true
+        serviceAccount:
+          name: alb-controller
+          annotations:
+            eks.amazonaws.com/role-arn: arn:aws:iam::679441504692:role/aws-load-balancer-controller
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: kube-system
+  syncPolicy:
+    automated:
+      prune: true
