@@ -28,6 +28,9 @@ argo-cd:
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
       dex.config: |
+        logger:
+            level: debug
+            format: json
         connectors:
           - type: saml
             id: okta
