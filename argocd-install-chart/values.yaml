@@ -12,6 +12,11 @@ argo-cd:
       operationProcessors: "25"
 
   server:
+    ingress:
+      hosts:
+        - k8s-argocd-argocdin-f7b3b69363-410852681.us-east-1.elb.amazonaws.com
+    certificate:
+      domain: k8s-argocd-argocdin-f7b3b69363-410852681.us-east-1.elb.amazonaws.com
     autoscaling:
       enabled: true
       minReplicas: 2
