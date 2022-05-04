@@ -23,6 +23,7 @@ argo-cd:
     extraArgs:
       - --insecure
     config:
+      url: http://k8s-argocd-argocdin-f7b3b69363-410852681.us-east-1.elb.amazonaws.com
       repositories: |
         - type: helm
           name: argo-cd
