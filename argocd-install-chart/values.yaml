@@ -53,7 +53,7 @@ argo-cd:
                 2KjaULmizLaPIozwxZbybVK44QnsvNxznPetqsXqffoyzPy4ZCWLkpPpUvDGzy0O5n0knlzuhAFs
                 7I3R2nV6DTPBB6HdTakFaZlMBqeD0xiZDNlZO6r6j7Ls4Zi3GcagOh0cwCwxRszOu3CBKscXd05L
                 ZwWOcCr+icPhaIbvj5tU95W4A1wrMF17V8Ubdw==
-              redirectURI: http://k8s-argocd-argocdin-f7b3b69363-410852681.us-east-1.elb.amazonaws.com/dex/callback
+              redirectURI: http://k8s-argocd-argocdin-f7b3b69363-410852681.us-east-1.elb.amazonaws.com/api/dex
               usernameAttr: email
               emailAttr: email
               groupsAttr: group
