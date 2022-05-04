@@ -22,6 +22,35 @@ argo-cd:
         - type: helm
           name: argo-cd
           url: https://argoproj.github.io/argo-helm
+      dex.config: |
+        connectors:
+          - type: saml
+            id: okta
+            name: Okta
+            config:
+              ssoURL: https://dev-15757292.okta.com/app/dev-15757292_argocd_1/exk4wwfirz9Cysj915d7/sso/saml
+              caData: |
+                MIIDqDCCApCgAwIBAgIGAYCOyMAeMA0GCSqGSIb3DQEBCwUAMIGUMQswCQYDVQQGEwJVUzETMBEG
+                A1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU
+                MBIGA1UECwwLU1NPUHJvdmlkZXIxFTATBgNVBAMMDGRldi0xNTc1NzI5MjEcMBoGCSqGSIb3DQEJ
+                ARYNaW5mb0Bva3RhLmNvbTAeFw0yMjA1MDQxMTE1MDJaFw0zMjA1MDQxMTE2MDJaMIGUMQswCQYD
+                VQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsG
+                A1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxFTATBgNVBAMMDGRldi0xNTc1NzI5MjEc
+                MBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+                ggEBALYzJlVqYcevrdLgpNkHR/t1PFmmt8HgvqR9nwHiReJUNfhceevRKK2b32zoTj7+V51e8LJZ
+                GZlI6gnkS8mdKRGHyZhqerZRkAju+uer/CBvigBF2a0CcIUBltN/NBH6HGbnipPotuBwxzjmJ9J+
+                6x3itfk17UCgFiPxTdQAuwOun82OpKZia/2lIJCowXIPUcxdunqPQUAd86mNPQxOUMvT9J33uQqq
+                iEetrTj0Z5/ZhYzJO86lAACOwVEr0WyjkQ0f9NaYdXZ450iNYixaqATViIwd/hCgLtGJsdEKYlyM
+                tAZP67Q0MxPqcaSUK46YDxVgbG4bowuUg1VZBWs96lMCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEA
+                KSS90dAgBjw5HBVtAKVcTvAZ32FYw+fl9JPqs/VopGU8Jk7vzWRf+2sAPURlfzpaS/WF6E9wRIhs
+                bA/dfw4SizeP95ViW+R/GCOCLto3hUcJPV0CEbiufcrkhU0V+z7S5Sq0jXXnB5GxWZ6u5tzW9iXd
+                2KjaULmizLaPIozwxZbybVK44QnsvNxznPetqsXqffoyzPy4ZCWLkpPpUvDGzy0O5n0knlzuhAFs
+                7I3R2nV6DTPBB6HdTakFaZlMBqeD0xiZDNlZO6r6j7Ls4Zi3GcagOh0cwCwxRszOu3CBKscXd05L
+                ZwWOcCr+icPhaIbvj5tU95W4A1wrMF17V8Ubdw==
+              redirectURI: http://k8s-argocd-argocdin-f7b3b69363-410852681.us-east-1.elb.amazonaws.com/api/dex/callback
+              usernameAttr: email
+              emailAttr: email
+              groupsAttr: group
 
   repoServer:
     autoscaling:
